@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Period</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Period</h1>
+    <form action="/period/create" method="POST">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required><br><br>
+        
+        <label for="year_id">Year:</label>
+        <select id="year_id" name="year_id" required>
+            <% schoolYears.forEach(year => { %>
+                <option value="<%= year.id %>"><%= year.year_name %></option>
+            <% }) %>
+        </select><br><br>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="start_time">Start Time:</label>
+        <input type="time" id="start_time" name="start_time" required><br><br>
+
+        <label for="end_time">End Time:</label>
+        <input type="time" id="end_time" name="end_time" required><br><br>
+
+        <button type="submit">Create</button>
+    </form>
+    <a href="/period"><button>Back</button></a>
+</body>
+</html>

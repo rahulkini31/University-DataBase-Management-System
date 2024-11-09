@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Departments</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid black;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    a {
+      margin-right: 10px;
+      text-decoration: none;
+      padding: 5px 10px;
+      background-color: #007BFF;
+      color: white;
+      border-radius: 4px;
+    }
+    a:hover {
+      background-color: #0056b3;
+    }
+    h1 {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Departments</h1>
+  <a href="/department/create">Create New Department</a>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Department Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% departments.forEach(department => { %>
+        <tr>
+          <td><%= department.id %></td>
+          <td><%= department.department_name %></td>
+          <td>
+            <a href="/department/update/<%= department.id %>">Update</a>
+            <a href="/department/delete/<%= department.id %>">Delete</a>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>

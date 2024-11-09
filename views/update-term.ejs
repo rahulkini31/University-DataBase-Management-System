@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Term</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        form { margin: 20px; }
+        label, input, select { display: block; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Update Term</h1>
+    <form action="/term/update/<%= term.id %>" method="POST">
+        <label for="year_id">School Year:</label>
+        <select id="year_id" name="year_id" required>
+            <% schoolYears.forEach(year => { %>
+                <option value="<%= year.id %>" <%= term.year_id === year.id ? 'selected' : '' %>><%= year.year_name %></option>
+            <% }) %>
+        </select>
+
+        <label for="term_name">Term Name:</label>
+        <input type="text" id="term_name" name="term_name" value="<%= term.term_name %>" required>
+
+        <label for="term_number">Term Number:</label>
+        <input type="number" id="term_number" name="term_number" value="<%= term.term_number %>" required>
+
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" value="<%= term.start_date.toISOString().slice(0, 10) %>" required>
+
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date" value="<%= term.end_date.toISOString().slice(0, 10) %>" required>
+
+        <button type="submit">Update Term</button>
+    </form>
+    <a href="/term"><button>Back to Terms</button></a>
+</body>
+</html>

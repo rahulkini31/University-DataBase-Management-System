@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Classroom</title>
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    form {
+      width: 50%;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 15px 0 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .submit-btn {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+
+    .back-btn {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Create Classroom</h1>
+  <form action="/classroom/create" method="POST">
+    <input type="text" name="id" placeholder="ID" />
+    <input type="text" name="room_type_id" placeholder="Room Type ID" />
+    <input type="text" name="room_name" placeholder="Room Name" />
+    <input type="number" name="capacity" placeholder="Capacity" />
+    <button type="submit">Create Classroom</button>
+  </form>
+
+  <a href="/classroom" class="back-btn">Back to Classrooms</a>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classes List</title>
+    <style>
+        body {
+      font-family: Helvetica, sans-serif;
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .delete-btn {
+      background-color: red;
+    }
+    </style>
+</head>
+<body>
+    <h1>classes List</h1>
+    <a href="/class/create"><button>Create classes</button></a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Subject</th>
+                <th>Teacher</th>
+                <th>Term</th>
+                <th>Start Period</th>
+                <th>End Period</th>
+                <th>Classroom</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% classes.forEach(function(classes) { %>
+                <tr>
+                    <td><%= classes.id %></td>
+                    <td><%= classes.subject_name %></td>
+                    <td><%= classes.teacher_first + ' ' + classes.teacher_last %></td>
+                    <td><%= classes.term_name %></td>
+                    <td><%= classes.start_period_name %></td>
+                    <td><%= classes.end_period_name %></td>
+                    <td><%= classes.classroom_name %></td>
+                    <td><%= classes.name %></td>
+                    <td>
+                        <a href="/class/update/<%= classes.id %>"><button>Update</button></a>
+                        <a href="/class/delete/<%= classes.id %>"><button>Delete</button></a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>

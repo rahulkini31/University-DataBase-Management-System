@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guardians</title>
+  <style>
+    body {
+      font-family: 'Helvetica', Arial, sans-serif;
+      margin: 20px;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    h1 {
+      color: #007BFF;
+      margin-bottom: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007BFF;
+      padding: 10px 15px;
+      border: 1px solid #007BFF;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    a:hover {
+      background-color: #007BFF;
+      color: white;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+    }
+
+    table, th, td {
+      border: 1px solid #dddddd;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      font-size: 16px;
+    }
+
+    th {
+      background-color: #007BFF;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .actions {
+      text-align: center;
+    }
+
+    .actions a {
+      margin: 0 5px;
+      color: #28a745;
+      padding: 5px 10px;
+      border: 1px solid #28a745;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .actions a:hover {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .actions a.delete {
+      color: #dc3545;
+      border-color: #dc3545;
+    }
+
+    .actions a.delete:hover {
+      background-color: #dc3545;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Guardians</h1>
+  <a href="/guardian/create">
+    <button>Create Guardian</button>
+  </a>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th class="actions">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% guardians.forEach(guardian => { %>
+        <tr>
+          <td><%= guardian.id %></td>
+          <td><%= guardian.first_name %></td>
+          <td><%= guardian.last_name %></td>
+          <td><%= guardian.email %></td>
+          <td><%= guardian.phone_number %></td>
+          <td class="actions">
+            <a href="/guardian/update/<%= guardian.id %>">Update</a> |
+            <a class="delete" href="/guardian/delete/<%= guardian.id %>">Delete</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>

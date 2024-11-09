@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update School Year</title>
+    <style>
+        /* In-file CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input {
+            margin-bottom: 20px;
+            padding: 8px;
+            width: 100%;
+            max-width: 300px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Update School Year</h1>
+    <form action="/school_year/update/<%= school_year.id %>" method="POST">
+        <label for="year_name">Year Name:</label>
+        <input type="text" id="year_name" name="year_name" value="<%= school_year.year_name %>" required>
+        
+        <label for="start_year">Start Year:</label>
+        <input type="date" id="start_year" name="start_year" value="<%= new Date(school_year.start_year).toISOString().split('T')[0] %>" required>
+        
+        <label for="end_year">End Year:</label>
+        <input type="date" id="end_year" name="end_year" value="<%= new Date(school_year.end_year).toISOString().split('T')[0] %>" required>
+        
+        <button type="submit">Update</button>
+    </form>
+    <a href="/school_year">Back to School Years</a>
+</body>
+</html>

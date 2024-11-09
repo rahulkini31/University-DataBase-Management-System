@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Student-Guardian Relationship</title>
+  <style>
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    p {
+      font-size: 18px;
+    }
+    .btn {
+      padding: 10px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn-cancel {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Delete Student-Guardian Relationship</h1>
+  <div class="form-container">
+    <p>Are you sure you want to delete the relationship between student <strong><%= student_guardian.given_name %> <%= student_guardian.last_name %></strong> and guardian <strong><%= student_guardian.first_name %> <%= student_guardian.last_name %></strong>?</p>
+    <form action="/student_guardian/delete/<%= student_guardian.student_id %>/<%= student_guardian.guardian_id %>" method="POST">
+      <button type="submit" class="btn">Delete</button>
+      <a href="/student_guardian" class="btn btn-cancel">Cancel</a>
+    </form>
+  </div>
+</body>
+</html>

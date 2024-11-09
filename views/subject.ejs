@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Subject List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Subject Name</th>
+                <th>Department</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% subjects.forEach(subject => { %>
+                <tr>
+                    <td><%= subject.id %></td>
+                    <td><%= subject.subject_name %></td>
+                    <td><%= subject.department_name %></td>
+                    <td>
+                        <a href="/subject/update/<%= subject.id %>"><button>Edit</button></a>
+                        <a href="/subject/delete/<%= subject.id %>"><button>Delete</button></a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <a href="/subject/create"><button>Create New Subject</button></a>
+</body>
+</html>

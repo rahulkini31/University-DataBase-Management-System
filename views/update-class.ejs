@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Class</title>
+</head>
+<body>
+    <h1>Update Class</h1>
+    <form action="/class/update/<%= class.id %>" method="POST">
+        <label for="subject_id">Subject:</label>
+        <select name="subject_id" required>
+            <% subjects.forEach(subject => { %>
+                <option value="<%= subject.id %>" <%= subject.id === class.subject_id ? 'selected' : '' %>><%= subject.subject_name %></option>
+            <% }) %>
+        </select>
+        <br>
+        <label for="teacher_id">Teacher:</label>
+        <select name="teacher_id" required>
+            <% teachers.forEach(teacher => { %>
+                <option value="<%= teacher.id %>" <%= teacher.id === class.teacher_id ? 'selected' : '' %>><%= teacher.first_name + ' ' + teacher.last_name %></option>
+            <% }) %>
+        </select>
+        <br>
+        <label for="term_id">Term:</label>
+        <select name="term_id" required>
+            <% terms.forEach(term => { %>
+                <option value="<%= term.id %>" <%= term.id === class.term_id ? 'selected' : '' %>><%= term.term_name %></option>
+            <% }) %>
+        </select>
+        <br>
+        <label for="start_period_id">Start Period:</label>
+        <select name="start_period_id" required>
+            <% periods.forEach(period => { %>
+                <option value="<%= period.id %>" <%= period.id === class.start_period_id ? 'selected' : '' %>><%= period.name %></option>
+            <% }) %>
+        </select>
+        <br>
+        <label for="end_period_id">End Period:</label>
+        <select name="end_period_id" required>
+            <% periods.forEach(period => { %>
+                <option value="<%= period.id %>" <%= period.id === class.end_period_id ? 'selected' : '' %>><%= period.name %></option>
+            <% }) %>
+        </select>
+        <br>
+        <label for="classroom_id">Classroom:</label>
+        <select name="classroom_id" required>
+            <% classrooms.forEach(classroom => { %>
+                <option value="<%= classroom.id %>" <%= classroom.id === class.classroom_id ? 'selected' : '' %>><%= classroom.room_name %></option>
+            <% }) %>
+        </select>
+        <br>
+        <label for="name">Class Name:</label>
+        <input type="text" name="name" value="<%= class.name %>" required>
+        <br>
+        <button type="submit">Update Class</button>
+    </form>
+    <a href="/class"><button>Back to Class List</button></a>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Classroom Type</title>
+  <style>
+    body {
+      font-family: Helvetica, sans-serif;
+      padding: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label, input {
+      margin-bottom: 10px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Create Classroom Type</h1>
+  <form action="/classroom_types/create" method="POST">
+    <label for="id">ID:</label>
+    <input type="text" id="id" name="id" required>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <button type="submit">Create</button>
+  </form>
+</body>
+</html>

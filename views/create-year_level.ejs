@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Year Level</title>
+    <style>
+        body { font-family: Helvetica, sans-serif; }
+        form { max-width: 400px; margin: 20px; }
+        input { margin-bottom: 10px; padding: 10px; width: 100%; }
+        button { padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Create Year Level</h1>
+    <form action="/year_level/create" method="POST">
+        <input type="text" name="id" placeholder="Year Level ID" required />
+        <input type="text" name="level_name" placeholder="Level Name" required />
+        <input type="number" name="level_order" placeholder="Level Order" required />
+        <button type="submit">Create</button>
+    </form>
+    <a href="/year_level"><button>Back to Year Levels</button></a>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Period</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Delete Period</h1>
+    <p>Are you sure you want to delete the following period?</p>
+    <p><strong>ID:</strong> <%= period.id %></p>
+    <p><strong>Year:</strong> <%= period.year_id %></p>
+    <p><strong>Name:</strong> <%= period.name %></p>
+    <p><strong>Start Time:</strong> <%= period.start_time %></p>
+    <p><strong>End Time:</strong> <%= period.end_time %></p>
+
+    <form action="/period/delete/<%= period.id %>" method="POST">
+        <button type="submit">Confirm Delete</button>
+    </form>
+    <a href="/period"><button>Cancel</button></a>
+</body>
+</html>

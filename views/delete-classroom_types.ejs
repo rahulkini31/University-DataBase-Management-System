@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Classroom Type</title>
+  <style>
+    body {
+      font-family: Helvetica, sans-serif;
+      padding: 20px;
+    }
+    .warning {
+      color: red;
+      font-weight: bold;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Delete Classroom Type</h1>
+  <p class="warning">Are you sure you want to delete the classroom type "<%= classroomType.name %>"?</p>
+  
+  <form action="/classroom_types/delete/<%= classroomType.id %>" method="POST">
+    <button type="submit">Yes, Delete</button>
+  </form>
+  <a href="/classroom_types"><button>No, Go Back</button></a>
+</body>
+</html>

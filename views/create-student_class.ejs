@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Student Class</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input, select {
+            padding: 8px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Student Class</h1>
+    <form action="/student_class/create" method="POST">
+        <label for="student_id">Student ID:</label>
+        <select name="student_id" required>
+            <% students.forEach(function(student) { %>
+                <option value="<%= student.id %>"><%= student.given_name %> <%= student.last_name %></option>
+            <% }); %>
+        </select>
+
+        <label for="class_id">Class ID:</label>
+        <select name="class_id" required>
+            <% classes.forEach(function(classItem) { %>
+                <option value="<%= classItem.id %>"><%= classItem.name %></option>
+            <% }); %>
+        </select>
+
+        <label for="score">Score:</label>
+        <input type="text" name="score" required />
+
+        <button type="submit">Create</button>
+    </form>
+    <a href="/student_class">Back to Student Classes</a>
+</body>
+</html>

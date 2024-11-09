@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delete Student</title>
+  <style>
+    .container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      margin: 10px;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Are you sure you want to delete the following student?</h1>
+    <p><strong>ID:</strong> <%= student.id %></p>
+    <p><strong>Given Name:</strong> <%= student.given_name %></p>
+    <p><strong>Middle Name:</strong> <%= student.middle_name %></p>
+    <p><strong>Last Name:</strong> <%= student.last_name %></p>
+    <p><strong>Date of Birth:</strong> <%= student.date_of_birth.toISOString().substring(0, 10) %></p>
+    <p><strong>Gender:</strong> <%= student.gender %></p>
+    <p><strong>Enrollment Date:</strong> <%= student.enrollment_date.toISOString().substring(0, 10) %></p>
+    <form action="/student/delete/<%= student.id %>" method="POST">
+      <button type="submit">Yes, Delete</button>
+      <a href="/student"><button type="button">Cancel</button></a>
+    </form>
+  </div>
+</body>
+</html>

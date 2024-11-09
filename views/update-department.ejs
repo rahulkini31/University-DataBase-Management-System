@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Department</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    form {
+      margin-top: 20px;
+    }
+    label, input {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="text"], input[type="submit"] {
+      padding: 10px;
+      font-size: 16px;
+    }
+    input[type="submit"] {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Update Department</h1>
+  <form action="/department/update/<%= department.id %>" method="POST">
+    <label for="department_name">Department Name</label>
+    <input type="text" name="department_name" id="department_name" value="<%= department.department_name %>" required>
+
+    <input type="submit" value="Update Department">
+  </form>
+</body>
+</html>

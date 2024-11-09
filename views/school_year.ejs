@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Years</title>
+    <style>
+        body {
+            font-family: 'Helvetica', Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        h1 {
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 12px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .actions a {
+            margin-right: 10px;
+            color: #007BFF;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .actions a:hover {
+            text-decoration: underline;
+        }
+
+        .actions .delete {
+            color: #f44336; /* Red for delete action */
+        }
+
+        .actions .delete:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>School Years</h1>
+    <a href="/school_year/create"><button>Create New School Year</button></a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Year Name</th>
+                <th>Start Year</th>
+                <th>End Year</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% school_years.forEach(function(year) { %>
+            <tr>
+                <td><%= year.id %></td>
+                <td><%= year.year_name %></td>
+                <td><%= new Date(year.start_year).toLocaleDateString() %></td>
+                <td><%= new Date(year.end_year).toLocaleDateString() %></td>
+                <td class="actions">
+                    <a href="/school_year/update/<%= year.id %>">Update</a>
+                    <a href="/school_year/delete/<%= year.id %>" class="delete">Delete</a>
+                </td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

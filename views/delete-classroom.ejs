@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Classroom</title>
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .delete-btn, .cancel-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .delete-btn {
+      background-color: #e74c3c;
+    }
+
+    .delete-btn:hover {
+      background-color: #c0392b;
+    }
+
+    .cancel-btn {
+      background-color: #3498db;
+    }
+
+    .cancel-btn:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Delete Classroom</h1>
+
+  <p>Are you sure you want to delete the classroom "<%= classroom.room_name %>"?</p>
+
+  <form action="/classroom/delete/<%= classroom.id %>" method="POST">
+    <button type="submit" class="delete-btn">Yes, Delete</button>
+    <a href="/classroom" class="cancel-btn">Cancel</a>
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Term</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        form { margin: 20px; }
+        label, input, select { display: block; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Create Term</h1>
+    <form action="/term/create" method="POST">
+        <label for="id">Term ID:</label>
+        <input type="text" id="id" name="id" required>
+
+        <label for="year_id">School Year:</label>
+        <select id="year_id" name="year_id" required>
+            <% schoolYears.forEach(year => { %>
+                <option value="<%= year.id %>"><%= year.year_name %></option>
+            <% }) %>
+        </select>
+
+        <label for="term_name">Term Name:</label>
+        <input type="text" id="term_name" name="term_name" required>
+
+        <label for="term_number">Term Number:</label>
+        <input type="number" id="term_number" name="term_number" required>
+
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" required>
+
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date" required>
+
+        <button type="submit">Create Term</button>
+    </form>
+    <a href="/term"><button>Back to Terms</button></a>
+</body>
+</html>

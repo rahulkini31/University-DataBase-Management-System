@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Student Year Level</title>
+    <style>
+        /* In-file CSS */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            margin: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Update Student Year Level</h1>
+    <form action="/student_year_level/update/<%= student_year_level.student_id %>/<%= student_year_level.level_id %>/<%= student_year_level.school_year_id %>" method="POST">
+        <label for="score">Score:</label>
+        <input type="number" name="score" id="score" value="<%= student_year_level.score %>" required>
+
+        <button type="submit">Update</button>
+    </form>
+    <a href="/student_year_level"><button>Back to Student Year Levels</button></a>
+</body>
+</html>

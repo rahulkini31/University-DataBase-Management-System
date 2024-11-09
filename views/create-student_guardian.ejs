@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Student-Guardian Relationship</title>
+  <style>
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+    .btn {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Create New Student-Guardian Relationship</h1>
+  <div class="form-container">
+    <form action="/student_guardian/create" method="POST">
+      <label for="student_id">Student:</label>
+      <select name="student_id" required>
+        <% students.forEach(student => { %>
+          <option value="<%= student.id %>"><%= student.given_name %> <%= student.last_name %></option>
+        <% }) %>
+      </select>
+
+      <label for="guardian_type_id">Guardian Type:</label>
+      <select name="guardian_type_id" required>
+        <% guardianTypes.forEach(type => { %>
+          <option value="<%= type.id %>"><%= type.name %></option>
+        <% }) %>
+      </select>
+
+      <label for="guardian_id">Guardian:</label>
+      <select name="guardian_id" required>
+        <% guardians.forEach(guardian => { %>
+          <option value="<%= guardian.id %>"><%= guardian.first_name %> <%= guardian.last_name %></option>
+        <% }) %>
+      </select>
+
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

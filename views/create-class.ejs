@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Class</title>
+</head>
+<body>
+    <h1>Create Class</h1>
+    <form action="/class/create" method="POST">
+        <label for="id">ID:</label>
+        <input type="text" name="id" required>
+        <br>
+        <label for="subject_id">Subject:</label>
+        <select name="subject_id" required>
+            <% subjects.forEach(subject => { %>
+                <option value="<%= subject.id %>"><%= subject.subject_name %></option>
+            <% }) %>
+        </select>
+        <br>
+        <label for="teacher_id">Teacher:</label>
+        <select name="teacher_id" required>
+            <% teachers.forEach(teacher => { %>
+                <option value="<%= teacher.id %>"><%= teacher.first_name + ' ' + teacher.last_name %></option>
+            <% }) %>
+        </select>
+        <br>
+        <label for="term_id">Term:</label>
+        <select name="term_id" required>
+            <% terms.forEach(term => { %>
+                <option value="<%= term.id %>"><%= term.term_name %></option>
+            <% }) %>
+        </select>
+        <br>
+        <label for="start_period_id">Start Period:</label>
+        <select name="start_period_id" required>
+            <% periods.forEach(period => { %>
+                <option value="<%= period.id %>"><%= period.name %></option>
+            <% }) %>
+        </select>
+        <br>
+        <label for="end_period_id">End Period:</label>
+        <select name="end_period_id" required>
+            <% periods.forEach(period => { %>
+                <option value="<%= period.id %>"><%= period.name %></option>
+            <% }) %>
+        </select>
+        <br>
+        <label for="classroom_id">Classroom:</label>
+        <select name="classroom_id" required>
+            <% classrooms.forEach(classroom => { %>
+                <option value="<%= classroom.id %>"><%= classroom.room_name %></option>
+            <% }) %>
+        </select>
+        <br>
+        <label for="name">Class Name:</label>
+        <input type="text" name="name" required>
+        <br>
+        <button type="submit">Create Class</button>
+    </form>
+    <a href="/class"><button>Back to Class List</button></a>
+</body>
+</html>

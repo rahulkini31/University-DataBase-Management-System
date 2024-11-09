@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Student Year Level</title>
+    <style>
+        /* In-file CSS */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            margin: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Student Year Level</h1>
+    <form action="/student_year_level/create" method="POST">
+        <label for="student_id">Student ID:</label>
+        <select name="student_id" id="student_id" required>
+            <% students.forEach(function(student) { %>
+                <option value="<%= student.id %>"><%= student.given_name %> <%= student.last_name %></option>
+            <% }); %>
+        </select>
+
+        <label for="level_id">Level ID:</label>
+        <select name="level_id" id="level_id" required>
+            <% levels.forEach(function(level) { %>
+                <option value="<%= level.id %>"><%= level.level_name %></option>
+            <% }); %>
+        </select>
+
+        <label for="school_year_id">School Year ID:</label>
+        <select name="school_year_id" id="school_year_id" required>
+            <% schoolYears.forEach(function(year) { %>
+                <option value="<%= year.id %>"><%= year.year_name %></option>
+            <% }); %>
+        </select>
+
+        <label for="score">Score:</label>
+        <input type="number" name="score" id="score" required>
+
+        <button type="submit">Create</button>
+    </form>
+    <a href="/student_year_level"><button>Back to Student Year Levels</button></a>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Subject</title>
+    <style>
+        form {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        label, input, select {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create a New Subject</h1>
+
+    <form action="/subject/create" method="POST">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required>
+
+        <label for="subject_name">Subject Name:</label>
+        <input type="text" id="subject_name" name="subject_name" required>
+
+        <label for="department_id">Department:</label>
+        <select id="department_id" name="department_id">
+            <% departments.forEach(department => { %>
+                <option value="<%= department.id %>"><%= department.department_name %></option>
+            <% }) %>
+        </select>
+
+        <input type="submit" value="Create Subject">
+    </form>
+</body>
+</html>
